@@ -288,15 +288,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
-
-
-
-
-
-
-
-
-
-{/* Contact Section */ }
