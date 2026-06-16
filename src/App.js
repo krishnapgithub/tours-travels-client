@@ -291,14 +291,12 @@ function App() {
 
 export default App;
 
-{/* Admin Dashboard */ }
 
-<section style={{ padding: "40px" }}>
-  <h2>Admin Dashboard</h2>
 
-  <table border="1" cellPadding="10">
-    ...
-  </table>
-</section>
+
+
+
+
+
 
 {/* Contact Section */ }
