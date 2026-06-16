@@ -14,7 +14,7 @@ function App() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/bookings",
+        "https://tours-travels-server-say1.onrender.com/api/bookings",
         {
           name,
           email,
@@ -25,7 +25,7 @@ function App() {
       alert(response.data.message);
 
       const bookingsResponse = await axios.get(
-        "http://localhost:5000/api/bookings"
+        "https://tours-travels-server-say1.onrender.com/api/bookings"
       );
 
       setBookings(bookingsResponse.data);
@@ -42,7 +42,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/bookings")
+      .get("https://tours-travels-server-say1.onrender.com/api/bookings")
       .then((response) => {
         setBookings(response.data);
       })
