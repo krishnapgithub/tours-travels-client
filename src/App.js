@@ -6,7 +6,7 @@ function App() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [tour, setTour] = useState("");
+  //const [tour, setTour] = useState("");
   const [destination, setDestination] = useState("");
   const [phone, setPhone] = useState("");
   const [travelDate, setTravelDate] = useState("");
@@ -40,7 +40,7 @@ function App() {
 
       setName("");
       setEmail("");
-      setTour("");
+      //setTour("");
       setPhone("");
 
       setTravelDate("");
