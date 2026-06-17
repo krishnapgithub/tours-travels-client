@@ -6,7 +6,12 @@ function App() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [tour, setTour] = useState("");
+  //const [tour, setTour] = useState("");
+  const [destination, setDestination] = useState("");
+  const [phone, setPhone] = useState("");
+  const [travelDate, setTravelDate] = useState("");
+  const [travelers, setTravelers] = useState("");
+
   const [bookings, setBookings] = useState([]);
 
   const handleSubmit = async (e) => {
@@ -18,7 +23,10 @@ function App() {
         {
           name,
           email,
-          tour
+          destination,
+          phone,
+          travelDate,
+          travelers
         }
       );
 
@@ -33,6 +41,10 @@ function App() {
       setName("");
       setEmail("");
       setTour("");
+      setPhone("");
+
+      setTravelDate("");
+      setTravelers("");
 
     } catch (error) {
       console.error(error);
@@ -52,7 +64,10 @@ function App() {
   }, []);
 
   return (
+
+
     <div>
+      <h1>NEW VERSION TEST</h1>
 
       {/* Navigation */}
       <nav
@@ -178,65 +193,78 @@ function App() {
         <h2>Book Your Tour</h2>
 
         <form onSubmit={handleSubmit}>
+
           <div>
             <input
               type="text"
-              placeholder="Your Name"
+              placeholder="Full Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              style={{
-                padding: "10px",
-                margin: "10px",
-                width: "250px"
-              }}
+              required
             />
           </div>
 
           <div>
             <input
               type="email"
-              placeholder="Email"
+              placeholder="Email Address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              style={{
-                padding: "10px",
-                margin: "10px",
-                width: "250px"
-              }}
+              required
+            />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              placeholder="Phone Number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
             />
           </div>
 
           <div>
             <select
-              value={tour}
-              onChange={(e) => setTour(e.target.value)}
-              style={{
-                padding: "10px",
-                margin: "10px",
-                width: "270px"
-              }}
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+              required
             >
-              <option value="">Select Tour</option>
-              <option>Dubai Tour</option>
-              <option>Kerala Tour</option>
-              <option>Tirupati Package</option>
+              <option value="">Select Destination</option>
+              <option value="Dubai Tour">Dubai Tour</option>
+              <option value="Kerala Tour">Kerala Tour</option>
+              <option value="Tirupati Package">Tirupati Package</option>
             </select>
           </div>
 
-          <button
-            type="submit"
-            style={{
-              padding: "10px 20px",
-              margin: "10px",
-              background: "#8B0000",
-              color: "white",
-              border: "none",
-              cursor: "pointer"
-            }}
-          >
+          <div>
+            <input
+              type="date"
+              value={travelDate}
+              onChange={(e) => setTravelDate(e.target.value)}
+              required
+            />
+          </div>
+
+          <div>
+            <input
+              type="number"
+              placeholder="Number of Travelers"
+              value={travelers}
+              onChange={(e) => setTravelers(e.target.value)}
+              min="1"
+              required
+            />
+          </div>
+
+          <button type="submit">
             Submit Booking
           </button>
+
         </form>
+
+
+
       </section>
 
       {/* Contact Section */}
@@ -260,8 +288,10 @@ function App() {
               <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Tour</th>
-                <th>Date</th>
+                <th>Phone</th>
+                <th>Destination</th>
+                <th>Travel Date</th>
+                <th>Travelers</th>
               </tr>
             </thead>
 
@@ -270,8 +300,10 @@ function App() {
                 <tr key={index}>
                   <td>{booking.name}</td>
                   <td>{booking.email}</td>
-                  <td>{booking.tour}</td>
-                  <td>{booking.createdAt}</td>
+                  <td>{booking.phone}</td>
+                  <td>{booking.destination}</td>
+                  <td>{booking.travelDate}</td>
+                  <td>{booking.travelers}</td>
                 </tr>
               ))}
             </tbody>
@@ -282,10 +314,13 @@ function App() {
 
         <p>Email: info@nichayavedika.com</p>
 
+
+
         <p>Phone: +1 555 123 4567</p>
       </section>
 
     </div>
   );
+
 }
 export default App;
